@@ -30,7 +30,6 @@ let simpleLightbox = new SimpleLightbox('.gallery a ', {
 async function onSearch(e) {
   e.preventDefault();
   cleanSearch();
-  // btnHidden();
 
   try {
     searchQuery = e.currentTarget.searchQuery.value;
@@ -75,7 +74,6 @@ async function onBtnLoadMore() {
   try {
     const response = await fetchImages(searchQuery, page, perPage);
     renderGallery(response.hits);
-    simpleLightbox.refresh();
     getColor();
 
     if (response.totalHits <= page * perPage) {
@@ -84,6 +82,7 @@ async function onBtnLoadMore() {
         "We're sorry, but you've reached the end of search results."
       );
     }
+    simpleLightbox.refresh();
   } catch (error) {
     console.log(error);
   }
