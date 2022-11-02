@@ -73,10 +73,8 @@ async function onBtnLoadMore() {
   try {
     const response = await fetchImages(searchQuery, page, perPage);
     renderGallery(response.hits);
-
-      const totalPages = Math.ceil(response.totalHits / perPage);
  
-    if (page >= totalPages) {
+    if (response.totalHits <= page * perPage) {
       btnHidden();
       Notiflix.Notify.info(
         "We're sorry, but you've reached the end of search results."
