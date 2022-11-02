@@ -1,5 +1,6 @@
 import { fetchImages } from './js/fetchImages';
 import { renderGallery } from './js/renderGallery';
+import getColor from './js/hoverCard';
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -29,7 +30,7 @@ let simpleLightbox = new SimpleLightbox('.gallery a ', {
 async function onSearch(e) {
   e.preventDefault();
   cleanSearch();
-  btnHidden();
+  // btnHidden();
 
   try {
     searchQuery = e.currentTarget.searchQuery.value;
@@ -53,8 +54,9 @@ async function onSearch(e) {
 
       cleanSearch();
       renderGallery(response.hits);
+      getColor();
     }
-       simpleLightbox.refresh();
+    simpleLightbox.refresh();
 
     if (response.totalHits === 0) {
       Notiflix.Notify.failure(
@@ -73,20 +75,17 @@ async function onBtnLoadMore() {
   try {
     const response = await fetchImages(searchQuery, page, perPage);
     renderGallery(response.hits);
- 
+    simpleLightbox.refresh();
+    getColor();
+
     if (response.totalHits <= page * perPage) {
       btnHidden();
       Notiflix.Notify.info(
         "We're sorry, but you've reached the end of search results."
       );
-    } else {
-      renderGallery(response.hits);
-      const totalHits = Math.ceil(response.totalHits - (page - 1) * perPage);
-      Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
-      simpleLightbox.refresh();
     }
   } catch (error) {
-      console.log(error);
+    console.log(error);
   }
 
   const { height: cardHeight } = document
@@ -109,4 +108,3 @@ function btnShown() {
 function cleanSearch() {
   gallery.innerHTML = '';
 }
-
