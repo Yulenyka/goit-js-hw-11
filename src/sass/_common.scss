@@ -1,0 +1,114 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Poppins:wght@300;400;500;600;700;900&family=Roboto:wght@400;700;900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $fPoppins, 'sans-serif';
+  color: $textColorBlack;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: $bgColor;
+
+  @media screen and (min-width: $tab) {
+    font-size: 16px;
+    line-height: 1.19;
+  }
+}
+
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @media screen and (min-width: $tab) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+.container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (min-width: $mob2) {
+    width: 480px;
+  }
+
+  @media screen and (min-width: $tab) {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  @media screen and (min-width: $desk) {
+    width: 1280px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+button,
+input {
+  background-color: inherit;
+}
+
+button.is-hidden {
+  display: none;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+a:visited {
+  color: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+li {
+  list-style-type: none;
+}
