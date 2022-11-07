@@ -1,21 +1,21 @@
 {
-  "name": "goit-js-hw-11",
+  "name": "cocktails-project",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://Yulenyka.github.io/goit-js-hw-11",
+  "homepage": "https://Yulenyka.github.io/cocktails-project",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-11/"
+    "build": "parcel build src/*.html --public-url /cocktails-project/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Yulenyka/goit-js-hw-11.git"
+    "url": "git+https://github.com/Yulenyka/cocktails-project.git"
   },
   "keywords": [],
   "author": "Yulenyka <yulenyka@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Yulenyka/goit-js-hw-11/issues"
+    "url": "https://github.com/Yulenyka/cocktails-project/issues"
   },
   "dependencies": {
     "axios": "^1.1.3",
